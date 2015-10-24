@@ -84,6 +84,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
+                    'assets/css/demo.css': ['assets/scss/demo.scss'],
                     'assets/css/taggle.css': ['assets/scss/taggle.scss']
                 }
             }
@@ -92,6 +93,7 @@ module.exports = function(grunt) {
         cssmin: {
             compress: {
                 files: {
+                    'assets/css/demo.min.css': ['assets/css/demo.css'],
                     'assets/css/taggle.min.css': ['assets/css/taggle.css']
                 }
             }
