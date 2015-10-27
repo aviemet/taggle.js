@@ -1,37 +1,38 @@
 @import "taggle";
 
 //colors
-$color_stack_approx: #8A8A8A;
-$color_sea_buckthorn_approx: #ffA228;
-$white: #FFFFFF;
-$color_fuscous_gray_approx: #555555;
-$color_paprika_approx: #990033;
-$color_claret_approx: #7C0e33;
+$white: #FFFFFF !default;
+$color_fuscous_gray_approx: #555555 !default;
+$color_paprika_approx: #990033 !default;
+$color_claret_approx: #7C0e33 !default;
 
-//fonts
-$font_0: 'Roboto-Thin';
-$font_1: 'Roboto';
-$font_2: 'sans-serif';
-$font_3: 'arial';
-$font_4: 'sans-serif';
+$link_color: #990033;
+$link_hover_color: #FFFFFF;
+$text_color: #8A8A8A;
 
-* {
+$demo_font_family:  'Roboto-Thin', 'Roboto', 'sans-serif';
+$link_font_family: 'arial', 'sans-serif';
+
+/* * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
-}
+} */
+
 body {
-	font-family: $font_0, $font_1, $font_2;
-	color: $color_stack_approx;
+	font-family: $demo_font_family;
+	color: $text_color;
 	font-weight: 200;
-	background: url(assets/images/bg.png) repeat;
+	background: url("../images/bg.png") repeat;
 }
+
 %heading{
 	font-weight: 700;
 	line-height: 1.5;
 }
+
 h1 {
 	@extend %heading;
 	font-size: 4em;
@@ -41,91 +42,91 @@ h1 {
 		font-size: 7em;
 	}
 }
+
 h2 {
 	@extend %heading;
 	font-size: 3.2em;
 }
+
 h3 {
 	@extend %heading;
 	font-size: 2.3em;
 }
+
 h4 {
 	@extend %heading;
 	font-size: 2em;
 }
+
 h5 {
 	@extend %heading;
 	font-size: 1.6em;
 }
+
 h6 {
 	@extend %heading;
 	font-size: 1.2em;
 }
+
 a {
-	color: $color_sea_buckthorn_approx;
+	color: $link_color;
 	text-decoration: none;
+	-webkit-transition: color .5s ease-in-out, background-color .5s ease-in-out;
+	-moz-transition: color .5s ease-in-out, background-color .5s ease-in-out;
+	-o-transition: color .5s ease-in-out, background-color .5s ease-in-out;
+	transition: color .5s ease-in-out, background-color .5s ease-in-out;
+	
+	&:hover {
+		background: $link_color;
+		color: $link_hover_color;
+	}
+	
 	&:visited {
-		color: $color_sea_buckthorn_approx;
-		text-decoration: none;
+		color: $link_color;
 	}
 }
-ul {
+
+ul, ol {
 	font-size: 1em;
 	line-height: 1em;
 	margin: 0;
 }
-ol {
-	font-size: 1em;
-	line-height: 1em;
-	margin: 0;
-}
+
 p {
 	line-height: 140%;
 	margin-bottom: 10px;
 	font-size: 1.1em;
-	a {
-		-webkit-transition: .5s all;
-		-moz-transition: .5s all;
-		-o-transition: .5s all;
-		transition: .5s all;
-
-		&:hover {
-			-webkit-transition: .5s all;
-			-moz-transition: .5s all;
-			-o-transition: .5s all;
-			transition: .5s all;
-			background: $color_sea_buckthorn_approx;
-			color: $white;
-		}
-	}
 }
+
 strong {
 	font-weight: 700;
 }
+
 blockquote {
 	margin-left: 2em;
-	border-left: 4px solid $color_stack_approx;
+	border-left: 4px solid $text_color;
 	padding-left: 10px;
 }
+
 .text_center {
 	text-align: center;
 }
+
 .clearfix {
 	clear: both;
 	display: block;
+	
 	&:after {
 		content: "";
 		display: block;
 		clear: both;
 	}
 }
-header {
-	text-align: center;
-	margin: 50px 0 20px;
-}
+
 pre {
 	line-height: 125%;
 }
+
 code {
 	padding: 3px;
 	color: $color_fuscous_gray_approx;
@@ -150,18 +151,25 @@ code {
 		margin: 10px 0 30px;
 	}
 }
+
+header {
+	text-align: center;
+	margin: 50px 0 20px;
+}
+
 section {
 	margin-bottom: 50px;
 }
+
 .block {
 	margin-bottom: 30px;
 }
+
 #forkongithub {
 	z-index: 10;
 	
 	a {
-		text-decoration: none;
-		font-family: $font_3, $font_4;
+		font-family: $link_font_family;
 		text-align: center;
 		font-weight: 700;
 		padding: 5px 40px;
@@ -172,13 +180,15 @@ section {
 		width: 100%;
 		display: block;
 		top: 50px;
-    	background: $color_paprika_approx;
+		color: $link_hover_color;
+    	background: $link_color;
 		
 		&:hover {
-			background: $color_claret_approx;
-			color: $white;
+			color: $link_hover_color;
+			background: darken($link_color, 10%);
 		}
 	}
+	
 	a::before {
 		content: "";
 		width: 100%;
@@ -187,8 +197,9 @@ section {
 		top: 1px;
 		left: 0;
 		height: 1px;
-		background: $white;
+		background: #FFFFFF;
 	}
+	
 	a::after {
 		content: "";
 		width: 100%;
@@ -197,13 +208,12 @@ section {
 		top: 1px;
 		left: 0;
 		height: 1px;
-		background: $white;
+		background: #FFFFFF;
 		bottom: 1px;
 		top: auto;
 	}
-}
-@media screen and(min-width:800px) {
-	#forkongithub {
+	
+	@media screen and(min-width:800px) {
 		position: fixed;
 		display: block;
 		top: 0;
@@ -211,7 +221,7 @@ section {
 		width: 200px;
 		overflow: hidden;
 		height: 200px;
-		
+
 		a {
 			width: 18em;
 			position: absolute;

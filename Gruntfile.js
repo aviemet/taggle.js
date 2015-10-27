@@ -111,6 +111,11 @@ module.exports = function(grunt) {
             all: {
                 files: ['Gruntfile.js', 'src/**/*', 'test/**/*'],
                 tasks: ['eslint', 'test']
+            },
+
+            scss: {
+                files: ['assets/scss/*'],
+                tasks: ['compass', 'sass', 'cssmin']
             }
         },
 
